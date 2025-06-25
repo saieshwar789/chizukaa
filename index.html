@@ -490,13 +490,15 @@
                 <p class="fade-in">Ready for a taste of perfection? Fill out the form below and we'll get started on your order right away. We'll call you to confirm.</p>
                 
                 <form id="order-form" class="order-form fade-in" action="https://api.web3forms.com/submit" method="POST">
-                    <!-- 
-                        IMPORTANT: Replace with your Access Key from web3forms.com
-                        Go to https://web3forms.com/ to get your free key.
-                    -->
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    
+                    <!-- Your Access Key is now correctly inserted below! -->
+                    <input type="hidden" name="access_key" value="ba282db2-7e3a-4ea3-82f3-581b3717459c">
+                    
+                    <!-- These are helper fields for the email you receive -->
                     <input type="hidden" name="subject" value="New Order from Chizukaa Website!">
                     <input type="hidden" name="from_name" value="Chizukaa Order Bot">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> <!-- For spam protection -->
+
 
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -570,13 +572,11 @@
                     scrollIndicator.classList.add('hidden');
                     return;
                 }
-                // Check if the user is at the very end of the scroll (with a small buffer)
                 const isAtEnd = menuWrapper.scrollLeft + menuWrapper.clientWidth >= menuWrapper.scrollWidth - 5;
                 scrollIndicator.classList.toggle('hidden', isAtEnd);
             };
 
             scrollIndicator.addEventListener('click', () => {
-                // Scroll by a fixed amount, e.g., the width of one card + gap
                 menuWrapper.scrollBy({ left: 340, behavior: 'smooth' });
             });
             
@@ -611,7 +611,7 @@
                 .then(async (response) => {
                     let jsonResponse = await response.json();
                     if (response.status == 200) {
-                        resultDiv.innerHTML = "Order placed successfully! We will call you shortly to confirm.";
+                        resultDiv.innerHTML = jsonResponse.message || "Order placed successfully!";
                         resultDiv.style.color = '#4CAF50'; // Green for success
                     } else {
                         console.log(response);
