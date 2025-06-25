@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chizukaa - The Art of Five</title>
 
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/LX685jHx/image-1.png">
     <link rel="apple-touch-icon" href="https://i.ibb.co/LX685jHx/image-1.png">
     
@@ -82,7 +83,7 @@
         }
         .scroll-indicator.hidden { opacity: 0; pointer-events: none; }
         
-        /* NEW: Shortcut Button Container */
+        /* Shortcut Button Container */
         .place-order-shortcut-container {
             text-align: center;
             margin-top: 40px;
@@ -92,6 +93,9 @@
             opacity: 0;
             transform: translateY(-20px);
             pointer-events: none;
+            height: 0;
+            overflow: hidden;
+            margin-top: 0;
         }
 
         /* Story, Process, Testimonials Sections */
@@ -183,25 +187,117 @@
             </div>
             <div class="menu-scroll-wrapper fade-in">
                 <div class="menu-container">
-                    <!-- Items with data-price attribute -->
-                    <div class="menu-item"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=870" alt="Chicken Biryani" class="menu-item-img"><div class="menu-item-content"><h3 class="menu-item-title">The Royal Biryani</h3><p class="menu-item-description">A regal blend of aromatic basmati rice, tender chicken, and a secret mix of spices, slow-cooked to perfection.</p><div class="menu-item-footer"><span class="menu-item-price">₹250</span><button class="add-to-order-btn" data-item="The Royal Biryani" data-price="250">Add to Order</button></div></div></div>
-                    <div class="menu-item"><img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&q=80&w=870" alt="Chicken Wings" class="menu-item-img"><div class="menu-item-content"><h3 class="menu-item-title">Fiery Wings</h3><p class="menu-item-description">Crispy, juicy wings tossed in a blazing house-made sauce that is dangerously addictive. A true test of passion.</p><div class="menu-item-footer"><span class="menu-item-price">₹220</span><button class="add-to-order-btn" data-item="Fiery Wings" data-price="220">Add to Order</button></div></div></div>
-                    <div class="menu-item"><img src="./lollipop.png?auto=format&fit=crop&q=80&w=870" alt="Chicken Lollipop" class="menu-item-img"><div class="menu-item-content"><h3 class="menu-item-title">Glazed Lollipops</h3><p class="menu-item-description">Succulent chicken lollipops, Frenched and fried, then glazed in a sweet, spicy, and savory sauce. Irresistible.</p><div class="menu-item-footer"><span class="menu-item-price">₹240</span><button class="add-to-order-btn" data-item="Glazed Lollipops" data-price="240">Add to Order</button></div></div></div>
-                    <div class="menu-item"><img src="./naatukodi.png?auto=format&fit=crop&q=80&w=870" alt="Naatukodi" class="menu-item-img"><div class="menu-item-content"><h3 class="menu-item-title">Rustic Naatukodi</h3><p class="menu-item-description">Authentic country chicken, slow-cooked with rustic, hand-pounded spices. A robust, traditional flavor.</p><div class="menu-item-footer"><span class="menu-item-price">₹300</span><button class="add-to-order-btn" data-item="Rustic Naatukodi" data-price="300">Add to Order</button></div></div></div>
-                    <div class="menu-item"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&q=80&w=815" alt="Chicken Burger" class="menu-item-img"><div class="menu-item-content"><h3 class="menu-item-title">The Ultimate Burger</h3><p class="menu-item-description">A perfectly seasoned, crispy fried chicken fillet, topped with tangy slaw and a secret sauce in a toasted brioche bun.</p><div class="menu-item-footer"><span class="menu-item-price">₹180</span><button class="add-to-order-btn" data-item="The Ultimate Burger" data-price="180">Add to Order</button></div></div></div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=870" alt="Chicken Biryani" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">The Royal Biryani</h3>
+                            <p class="menu-item-description">A regal blend of aromatic basmati rice, tender chicken, and a secret mix of spices, slow-cooked to perfection.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹250</span>
+                                <button class="add-to-order-btn" data-item="The Royal Biryani" data-price="250">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&q=80&w=870" alt="Chicken Wings" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Fiery Wings</h3>
+                            <p class="menu-item-description">Crispy, juicy wings tossed in a blazing house-made sauce that is dangerously addictive. A true test of passion.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹220</span>
+                                <button class="add-to-order-btn" data-item="Fiery Wings" data-price="220">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./lollipop.png?auto=format&fit=crop&q=80&w=870" alt="Chicken Lollipop" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Glazed Lollipops</h3>
+                            <p class="menu-item-description">Succulent chicken lollipops, Frenched and fried, then glazed in a sweet, spicy, and savory sauce. Irresistible.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹240</span>
+                                <button class="add-to-order-btn" data-item="Glazed Lollipops" data-price="240">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./naatukodi.png?auto=format&fit=crop&q=80&w=870" alt="Naatukodi" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Rustic Naatukodi</h3>
+                            <p class="menu-item-description">Authentic country chicken, slow-cooked with rustic, hand-pounded spices. A robust, traditional flavor.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹300</span>
+                                <button class="add-to-order-btn" data-item="Rustic Naatukodi" data-price="300">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&q=80&w=815" alt="Chicken Burger" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">The Ultimate Burger</h3>
+                            <p class="menu-item-description">A perfectly seasoned, crispy fried chicken fillet, topped with tangy slaw and a secret sauce in a toasted brioche bun.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹180</span>
+                                <button class="add-to-order-btn" data-item="The Ultimate Burger" data-price="180">Add to Order</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="scroll-indicator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
             </div>
-            <!-- NEW: Shortcut button, initially hidden -->
+            <!-- Shortcut button, initially hidden -->
             <div id="place-order-shortcut-container" class="place-order-shortcut-container hidden">
-                <a href="#order-now" class="cta-button">Place Your Order</a>
+                <a href="#order-now" class="cta-button">Proceed to Order</a>
             </div>
         </section>
 
-        <!-- Other Sections -->
-        <section id="story"> ... </section>
-        <section id="process"> ... </section>
-        <section id="testimonials"> ... </section>
+        <section id="story">
+            <div class="container story-container">
+                <div class="story-content fade-in">
+                    <h2>Our Obsession</h2>
+                    <p>Chizukaa was born from a simple belief: do a few things exceptionally well rather than many things merely okay. We are obsessed with perfecting chicken. Each of our five signature dishes is a masterpiece, the result of countless hours of testing, tasting, and a relentless pursuit of flavor. This isn't just a kitchen; it's our craft, served to you.</p>
+                </div>
+                <div class="story-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=870" alt="Chef preparing food">
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="container">
+                <h2 class="fade-in">How It Works</h2>
+                <div class="process-container">
+                    <div class="process-step fade-in">
+                        <h3>1. You Choose</h3>
+                        <p>Browse our curated menu and add items to your order. The hardest part is choosing just one.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>2. We Craft</h3>
+                        <p>Your meal is prepared fresh, with passion and the finest ingredients, the moment you place your order.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>3. We Deliver</h3>
+                        <p>Hot, fresh, and full of flavor, delivered straight to your doorstep. We'll call to confirm your order.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">What People Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-card fade-in">
+                        <p>"The best Chicken Wings I've had in this city. Period. That glaze is something else!"</p>
+                        <div class="testimonial-author">- Anjali R.</div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <p>"Finally, a biryani that tastes authentic and isn't just a plate of colored rice. The chicken was so tender. 10/10."</p>
+                        <div class="testimonial-author">- @FoodieForLife</div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <section id="order-now">
             <div class="container">
@@ -238,7 +334,16 @@
         </section>
     </main>
 
-    <footer>...</footer>
+    <footer>
+        <div class="footer-logo">Chizukaa</div>
+        <div class="footer-links">
+            <a href="#menu">Menu</a>
+            <a href="#story">Our Story</a>
+            <a href="#order-now">Order Now</a>
+        </div>
+        <p class="footer-copyright">Operating Hours: 12:00 PM - 11:00 PM | Delivering across the city.</p>
+        <p class="footer-copyright">© 2024 Chizukaa Cloud Kitchen. All Rights Reserved.</p>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -298,9 +403,7 @@
                 renderCart();
             }
 
-            // Event Delegation for cart and menu
             document.body.addEventListener('click', (e) => {
-                // Add to order
                 if (e.target.classList.contains('add-to-order-btn')) {
                     const button = e.target;
                     addItemToCart(button.dataset.item, button.dataset.price);
@@ -311,25 +414,22 @@
                         button.classList.remove('added');
                     }, 1500);
                 }
-                // Increase quantity
                 if (e.target.classList.contains('increase-qty-btn')) {
                     const index = parseInt(e.target.dataset.index, 10);
                     cart[index].quantity++;
                     renderCart();
                 }
-                // Decrease quantity
                 if (e.target.classList.contains('decrease-qty-btn')) {
                     const index = parseInt(e.target.dataset.index, 10);
                     if (cart[index].quantity > 1) {
                         cart[index].quantity--;
                     } else {
-                        cart.splice(index, 1); // Remove if quantity becomes 0
+                        cart.splice(index, 1);
                     }
                     renderCart();
                 }
             });
             
-            // --- Other Initializations (Fade-in, Scroll Indicator) ---
             const observer = new IntersectionObserver((entries) => entries.forEach(entry => entry.target.classList.toggle('visible', entry.isIntersecting)), { threshold: 0.1 });
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
             const menuWrapper = document.querySelector('.menu-scroll-wrapper');
@@ -340,7 +440,6 @@
             window.addEventListener('load', handleScrollIndicator);
             window.addEventListener('resize', handleScrollIndicator);
 
-            // --- Form Submission Logic ---
             const form = document.getElementById('order-form');
             const resultDiv = document.getElementById('form-result');
             const submitButton = document.getElementById('submit-button');
