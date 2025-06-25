@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chizukaa - The Art of Five</title>
 
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/LX685jHx/image-1.png">
     <link rel="apple-touch-icon" href="https://i.ibb.co/LX685jHx/image-1.png">
     
@@ -99,7 +100,7 @@
             font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
-            border: 2px solid var(--color-text); /* Changed border to white */
+            border: 2px solid var(--color-text);
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -162,7 +163,7 @@
 
         .menu-item-title {
             font-size: 1.8rem;
-            color: var(--color-text); /* Changed from yellow to white */
+            color: var(--color-text);
             margin-bottom: 10px;
         }
 
@@ -181,7 +182,7 @@
         .menu-item-price {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--color-text); /* Changed from yellow to white */
+            color: var(--color-text);
         }
 
         .add-to-order-btn {
@@ -423,10 +424,56 @@
             </div>
         </section>
 
-        <!-- Our Story, Process, Testimonials Sections ... -->
-        <section id="story"><!-- ... --></section>
-        <section id="process"><!-- ... --></section>
-        <section id="testimonials"><!-- ... --></section>
+        <!-- Our Story Section -->
+        <section id="story">
+            <div class="container story-container">
+                <div class="story-content fade-in">
+                    <h2>Our Obsession</h2>
+                    <p>Chizukaa was born from a simple belief: do a few things exceptionally well rather than many things merely okay. We are obsessed with perfecting chicken. Each of our five signature dishes is a masterpiece, the result of countless hours of testing, tasting, and a relentless pursuit of flavor. This isn't just a kitchen; it's our craft, served to you.</p>
+                </div>
+                <div class="story-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=870" alt="Chef preparing food">
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <div class="container">
+                <h2 class="fade-in">How It Works</h2>
+                <div class="process-container">
+                    <div class="process-step fade-in">
+                        <h3>1. You Choose</h3>
+                        <p>Browse our curated menu and add items to your order. The hardest part is choosing just one.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>2. We Craft</h3>
+                        <p>Your meal is prepared fresh, with passion and the finest ingredients, the moment you place your order.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>3. We Deliver</h3>
+                        <p>Hot, fresh, and full of flavor, delivered straight to your doorstep. We'll call to confirm your order.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">What People Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-card fade-in">
+                        <p>"The best Chicken Wings I've had in this city. Period. That glaze is something else!"</p>
+                        <div class="testimonial-author">- Anjali R.</div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <p>"Finally, a biryani that tastes authentic and isn't just a plate of colored rice. The chicken was so tender. 10/10."</p>
+                        <div class="testimonial-author">- @FoodieForLife</div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <!-- Order Now Section with Cart and Form -->
         <section id="order-now">
@@ -434,7 +481,7 @@
                 <h2 class="fade-in">Place Your Order</h2>
                 <p class="fade-in">Add items to your order from the menu above. When you're ready, fill out your details below to complete the purchase.</p>
                 
-                <!-- NEW: Cart Display Area -->
+                <!-- Cart Display Area -->
                 <div class="cart-container fade-in">
                     <h3>Your Order</h3>
                     <div id="cart-items">
