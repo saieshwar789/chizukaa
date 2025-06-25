@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chizukaa - The Art of Five</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for Easy Theme Management */
+        :root {
+            --color-primary-bg: #1a1a1a;
+            --color-secondary-bg: #2a2a2a;
+            --color-accent-gold: #c5a47e;
+            --color-accent-red: #d9534f;
+            --color-text: #f5f5f5;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--color-primary-bg);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary-bg);
+            color: var(--color-text);
+            overflow-x: hidden; /* Prevent horizontal scroll on the body */
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-accent-gold);
+            font-weight: 700;
+        }
+
+        p {
+            line-height: 1.7;
+            color: rgba(245, 245, 245, 0.8);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Fade-in Animation on Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            /* Replace with your own hero image */
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1598515753093-b692aa461806?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            min-height: 600px;
+        }
+
+        .hero-logo {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--color-accent-gold);
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent-red);
+            color: var(--color-text);
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(217, 83, 79, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background-color: #e06864;
+        }
+        
+        /* --- Menu Section --- */
+        #menu h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+
+        .menu-scroll-wrapper {
+            overflow-x: scroll;
+            padding: 20px 0;
+            /* Hiding scrollbar for a cleaner look */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .menu-scroll-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .menu-container {
+            display: flex;
+            width: max-content; /* Allows flex items to not wrap */
+            gap: 40px;
+            padding: 0 40px;
+        }
+
+        .menu-item {
+            flex: 0 0 320px; /* Prevents shrinking, sets base width */
+            background: var(--color-secondary-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allows this container to grow and push footer down */
+        }
+
+        .menu-item-title {
+            font-size: 1.8rem;
+            color: var(--color-accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .menu-item-description {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent-gold);
+        }
+
+        .order-this-btn {
+            background: var(--color-accent-red);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .order-this-btn:hover {
+            background-color: #e06864;
+        }
+
+        /* --- Story Section --- */
+        #story {
+             background: var(--color-secondary-bg);
+        }
+        .story-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .story-image {
+            flex: 1;
+            max-width: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .story-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* --- Process Section --- */
+        #process h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+        .process-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            gap: 30px;
+        }
+        .process-step {
+            max-width: 300px;
+        }
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin: 15px 0 10px 0;
+        }
+
+        /* --- Testimonials Section --- */
+        #testimonials {
+            background: var(--color-secondary-bg);
+        }
+        #testimonials h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+        .testimonials-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        .testimonial-card {
+            background: var(--color-primary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 350px;
+            border-left: 5px solid var(--color-accent-gold);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--color-accent-gold);
+        }
+
+        /* --- Final CTA / Order Now Section --- */
+        #order-now {
+            text-align: center;
+        }
+        #order-now h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        #order-now p {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+        .delivery-partners img {
+            height: 50px;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+        }
+        .delivery-partners img:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #111;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-accent-gold);
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--color-accent-gold);
+        }
+        .footer-copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(245, 245, 245, 0.5);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .story-container {
+                flex-direction: column;
+            }
+            .story-image {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            h2 { font-size: 2.5rem !important; }
+
+            .menu-item {
+                flex-basis: 280px; /* Smaller cards on mobile */
+            }
+
+            .process-container, .testimonials-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .delivery-partners {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-logo">Chizukaa</h1>
+        <p class="hero-tagline">The Art of Five</p>
+        <a href="#order-now" class="cta-button">Order Now</a>
+    </section>
+
+    <main>
+        <!-- Menu Section -->
+        <section id="menu">
+            <div class="container">
+                <h2 class="fade-in">Our Signature Collection</h2>
+            </div>
+            <div class="menu-scroll-wrapper fade-in">
+                <div class="menu-container">
+                    <!-- Item 1: Chicken Biryani -->
+                    <div class="menu-item">
+                        <img src="images/biryani.jpg" alt="Chicken Biryani" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">The Royal Biryani</h3>
+                            <p class="menu-item-description">A regal blend of aromatic basmati rice, tender chicken, and a secret mix of spices, slow-cooked to perfection.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹250</span>
+                                <a href="#order-now" class="order-this-btn">Order This</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2: Chicken Wings -->
+                    <div class="menu-item">
+                        <img src="images/wings.jpg" alt="Chicken Wings" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Fiery Wings</h3>
+                            <p class="menu-item-description">Crispy, juicy wings tossed in a blazing house-made sauce that is dangerously addictive. A true test of passion.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹220</span>
+                                <a href="#order-now" class="order-this-btn">Order This</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 3: Chicken Lollipop -->
+                    <div class="menu-item">
+                        <img src="images/lollipop.jpg" alt="Chicken Lollipop" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Glazed Lollipops</h3>
+                            <p class="menu-item-description">Succulent chicken lollipops, Frenched and fried, then glazed in a sweet, spicy, and savory sauce. Irresistible.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹240</span>
+                                <a href="#order-now" class="order-this-btn">Order This</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 4: Naatukodi -->
+                    <div class="menu-item">
+                        <img src="images/naatukodi.jpg" alt="Naatukodi" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Rustic Naatukodi</h3>
+                            <p class="menu-item-description">Authentic country chicken, slow-cooked with rustic, hand-pounded spices. A robust, traditional flavor.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹300</span>
+                                <a href="#order-now" class="order-this-btn">Order This</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 5: Chicken Burger -->
+                    <div class="menu-item">
+                        <img src="images/burger.jpg" alt="Chicken Burger" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">The Ultimate Burger</h3>
+                            <p class="menu-item-description">A perfectly seasoned, crispy fried chicken fillet, topped with tangy slaw and a secret sauce in a toasted brioche bun.</p>
+                            <div class="menu-item-footer">
+                                <span class="menu-item-price">₹180</span>
+                                <a href="#order-now" class="order-this-btn">Order This</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section id="story">
+            <div class="container story-container">
+                <div class="story-content fade-in">
+                    <h2>Our Obsession</h2>
+                    <p>Chizukaa was born from a simple belief: do a few things exceptionally well rather than many things merely okay. We are obsessed with perfecting chicken. Each of our five signature dishes is a masterpiece, the result of countless hours of testing, tasting, and a relentless pursuit of flavor. This isn't just a kitchen; it's our craft, served to you.</p>
+                </div>
+                <div class="story-image fade-in">
+                    <!-- Replace with a picture of your chef or kitchen -->
+                    <img src="images/story.jpg" alt="Chef preparing food">
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <div class="container">
+                <h2 class="fade-in">How It Works</h2>
+                <div class="process-container">
+                    <div class="process-step fade-in">
+                        <h3>1. You Choose</h3>
+                        <p>Browse our curated menu and pick your craving. The hardest part is choosing just one.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>2. We Craft</h3>
+                        <p>Your meal is prepared fresh, with passion and the finest ingredients, the moment you order.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>3. We Deliver</h3>
+                        <p>Hot, fresh, and full of flavor, delivered straight to your doorstep through our partners.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">What People Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-card fade-in">
+                        <p>"The best Chicken Wings I've had in this city. Period. That glaze is something else!"</p>
+                        <div class="testimonial-author">- Anjali R.</div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <p>"Finally, a biryani that tastes authentic and isn't just a plate of colored rice. The chicken was so tender. 10/10."</p>
+                        <div class="testimonial-author">- @FoodieForLife</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Order Now Section -->
+        <section id="order-now">
+            <div class="container">
+                <h2 class="fade-in">Ready to Eat?</h2>
+                <p class="fade-in">Find us on your favorite delivery apps. Your next great meal is just a few clicks away.</p>
+                <div class="delivery-partners fade-in">
+                    <!-- Replace # with your actual Swiggy/Zomato links -->
+                    <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/2560px-Swiggy_logo.svg.png" alt="Order on Swiggy"></a>
+                    <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/2560px-Zomato_logo.png" alt="Order on Zomato"></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Chizukaa</div>
+        <div class="footer-links">
+            <a href="#menu">Menu</a>
+            <a href="#story">Our Story</a>
+            <!-- Replace with your actual contact details -->
+            <a href="tel:+910000000000">Call Us</a>
+        </div>
+        <p class="footer-copyright">Operating Hours: 12:00 PM - 11:00 PM | Delivering across the city.</p>
+        <p class="footer-copyright">© 2024 Chizukaa Cloud Kitchen. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for fade-in-on-scroll effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
