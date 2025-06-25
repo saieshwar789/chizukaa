@@ -3,184 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chizukaa - The Art of Five</title>
 
-    <!-- FAVICON -->
+    <!-- =================================================================== -->
+    <!-- SEO: Primary Meta Tags for Hyderabad & Warangal -->
+    <!-- =================================================================== -->
+    <title>Chizukaa - Order Chicken Dishes Online | Hyderabad & Warangal</title>
+    <meta name="description" content="Chizukaa is a premium cloud kitchen specializing in five signature chicken dishes, including The Royal Biryani & Fiery Wings. Order online for fast delivery in Hyderabad and Warangal.">
+    <meta name="keywords" content="chizukaa, order chicken online, chicken biryani, chicken wings, food delivery hyderabad, food delivery warangal, cloud kitchen hyderabad">
+    <link rel="canonical" href="https://saieshwar789.github.io/chizukaa/">
+
+    <!-- =================================================================== -->
+    <!-- SEO: Open Graph / Facebook / WhatsApp Meta Tags -->
+    <!-- =================================================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saieshwar789.github.io/chizukaa/">
+    <meta property="og:title" content="Chizukaa - Signature Chicken Dishes in Hyderabad & Warangal">
+    <meta property="og:description" content="Craving perfectly crafted chicken? Order from Chizukaa's exclusive menu of five signature dishes for delivery in Hyderabad and Warangal.">
+    <meta property="og:image" content="https://i.ibb.co/LX685jHx/image-1.png">
+
+    <!-- =================================================================== -->
+    <!-- SEO: Twitter Meta Tags -->
+    <!-- =================================================================== -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://saieshwar789.github.io/chizukaa/">
+    <meta property="twitter:title" content="Chizukaa - Signature Chicken Dishes in Hyderabad & Warangal">
+    <meta property="twitter:description" content="Craving perfectly crafted chicken? Order from Chizukaa's exclusive menu of five signature dishes for delivery in Hyderabad and Warangal.">
+    <meta property="twitter:image" content="https://i.ibb.co/LX685jHx/image-1.png">
+
+    <!-- =================================================================== -->
+    <!-- SEO: Local Business Schema for Multiple Cities -->
+    <!-- =================================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Chizukaa",
+      "image": "https://i.ibb.co/LX685jHx/image-1.png",
+      "url": "https://saieshwar789.github.io/chizukaa/",
+      "telephone": "[Your Phone Number]",
+      "servesCuisine": "Indian",
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[Your Main Kitchen Address or Area]",
+        "addressLocality": "Hyderabad",
+        "postalCode": "[Your Pin Code]",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Hyderabad"
+        },
+        {
+          "@type": "City",
+          "name": "Warangal"
+        }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "12:00",
+        "closes": "23:00"
+      } 
+    }
+    </script>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/LX685jHx/image-1.png">
     <link rel="apple-touch-icon" href="https://i.ibb.co/LX685jHx/image-1.png">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
     <style>
-        /* CSS Variables */
-        :root {
-            --color-bg-primary: #1a1a1a;
-            --color-bg-secondary: #2a2a2a;
-            --color-accent-action-red: #D82222;
-            --color-text: #f5f5f5;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        /* Global Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; background-color: var(--color-bg-primary); }
-        body { font-family: var(--font-body); background-color: var(--color-bg-primary); color: var(--color-text); overflow-x: hidden; }
-        h1, h2, h3 { font-family: var(--font-heading); color: var(--color-accent-action-red); font-weight: 700; }
-        p { line-height: 1.7; color: rgba(245, 245, 245, 0.8); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 100px 0; }
-
-        /* Animations */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        @keyframes nudge-right { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(5px); } }
-        
-        /* General hidden class */
-        .hidden { display: none !important; }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-            padding: 0 20px 80px 20px; min-height: 600px; text-align: center;
-            background: var(--color-accent-action-red) url('https://i.ibb.co/LX685jHx/image-1.png') no-repeat center center / contain;
-            background-blend-mode: darken;
-        }
-        
-        /* Buttons */
-        .cta-button {
-            display: inline-block; background-color: var(--color-accent-action-red); color: var(--color-text);
-            padding: 15px 35px; font-size: 1rem; font-weight: 700; text-decoration: none;
-            border: 2px solid var(--color-text); border-radius: 50px; text-transform: uppercase;
-            letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); cursor: pointer;
-        }
-        .cta-button:hover { transform: translateY(-5px); background-color: #E53935; }
-
-        /* Menu Section */
-        #menu h2 { text-align: center; font-size: 3rem; margin-bottom: 50px; }
-        .menu-scroll-wrapper { position: relative; overflow-x: scroll; padding: 20px 0; -ms-overflow-style: none; scrollbar-width: none; }
-        .menu-scroll-wrapper::-webkit-scrollbar { display: none; }
-        .menu-container { display: flex; width: max-content; gap: 40px; padding: 0 40px; }
-        .menu-item { flex: 0 0 320px; background: var(--color-bg-secondary); border-radius: 15px; overflow: hidden; transition: transform 0.4s ease; display: flex; flex-direction: column; }
-        .menu-item:hover { transform: translateY(-10px); }
-        .menu-item-img { width: 100%; height: 250px; object-fit: cover; }
-        .menu-item-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .menu-item-title { font-size: 1.8rem; color: var(--color-text); margin-bottom: 10px; }
-        .menu-item-description { font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
-        .menu-item-footer { display: flex; justify-content: space-between; align-items: center; }
-        .menu-item-price { font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
-        
-        /* Item Order Controls */
-        .item-order-control { display: flex; align-items: center; justify-content: center; min-width: 105px; }
-        .add-item-btn {
-            background: var(--color-accent-action-red); color: #fff; padding: 8px 30px; border-radius: 5px;
-            font-size: 0.9rem; font-weight: 500; transition: background-color 0.3s;
-            border: none; cursor: pointer; width: 100%;
-        }
-        .add-item-btn:hover { background-color: #E53935; }
-
-        .quantity-selector {
-            display: flex; align-items: center; justify-content: space-between;
-            border: 1px solid var(--color-accent-action-red); border-radius: 5px;
-            overflow: hidden; width: 100%;
-        }
-        .quantity-selector .quantity-btn {
-            background: var(--color-accent-action-red); border: none; color: var(--color-text);
-            width: 32px; height: 32px; font-size: 1.2rem; cursor: pointer;
-            display: flex; justify-content: center; align-items: center;
-        }
-        .quantity-selector .item-quantity-display {
-            font-weight: bold; padding: 0 10px;
-        }
-        
-        .scroll-indicator {
-            display: none; position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
-            width: 45px; height: 45px; background-color: rgba(26, 26, 26, 0.8); border: 1px solid var(--color-text);
-            color: var(--color-text); border-radius: 50%; justify-content: center; align-items: center;
-            cursor: pointer; animation: nudge-right 1.8s ease-in-out infinite; z-index: 10; transition: opacity 0.3s ease;
-        }
-        .scroll-indicator.hidden { opacity: 0; pointer-events: none; }
-        
-        /* Shortcut Button Container */
-        .place-order-shortcut-container {
-            text-align: center; margin-top: 40px; transition: opacity 0.4s, transform 0.4s, height 0.4s, margin 0.4s;
-        }
-        .place-order-shortcut-container.hidden {
-            opacity: 0; transform: translateY(-20px); pointer-events: none; height: 0; overflow: hidden; margin-top: 0;
-        }
-
-        /* Other Sections */
-        #story, #testimonials { background: var(--color-bg-secondary); }
-        .story-container { display: flex; align-items: center; gap: 50px; }
-        .story-content, .story-image { flex: 1; }
-        .story-content h2, #process h2, #testimonials h2 { font-size: 3rem; margin-bottom: 50px; text-align: center; }
-        .story-image { max-width: 450px; border-radius: 10px; overflow: hidden; }
-        .story-image img { width: 100%; display: block; }
-        .process-container, .testimonials-container { display: flex; justify-content: space-around; gap: 30px; text-align: center; }
-        .process-step, .testimonial-card { max-width: 350px; }
-        .process-step h3 { font-size: 1.5rem; margin: 15px 0 10px 0; }
-        .testimonial-card { background: var(--color-bg-primary); padding: 30px; border-radius: 10px; border-left: 5px solid var(--color-accent-action-red); }
-        .testimonial-card p { font-style: italic; margin-bottom: 15px; }
-        .testimonial-author { font-weight: bold; color: var(--color-text); }
-
-        /* Order Form & Cart Section */
-        #order-now { text-align: center; }
-        #order-now h2 { font-size: 3rem; margin-bottom: 20px; }
-        #order-now p { max-width: 600px; margin: 0 auto 40px auto; }
-        .cart-container {
-            max-width: 600px; margin: 0 auto 40px auto; background: var(--color-bg-secondary);
-            border-radius: 10px; padding: 25px; text-align: left; border: 1px solid #444;
-        }
-        .cart-container h3 { text-align: center; margin-bottom: 20px; }
-        #cart-items { display: grid; gap: 15px; }
-        .cart-item {
-            display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 15px;
-            padding-bottom: 10px; border-bottom: 1px solid #444;
-        }
-        .cart-item:last-child { border-bottom: none; }
-        .item-name { font-weight: 500; }
-        .item-controls { display: flex; align-items: center; gap: 10px; }
-        .cart-item-qty-btn {
-            background: var(--color-bg-primary); border: 1px solid #555; color: var(--color-text);
-            width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;
-            display: flex; justify-content: center; align-items: center; line-height: 1;
-        }
-        .item-qty { font-weight: bold; }
-        #cart-total {
-            margin-top: 20px; padding-top: 15px; border-top: 2px solid var(--color-accent-action-red);
-            display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: bold;
-        }
-        #cart-empty-msg { text-align: center; color: rgba(245, 245, 245, 0.6); font-style: italic; }
-        .order-form { max-width: 600px; margin: 0 auto; display: grid; gap: 20px; }
-        .form-group { text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: rgba(245, 245, 245, 0.8); }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 12px; background-color: var(--color-bg-secondary);
-            border: 1px solid #444; border-radius: 5px; color: var(--color-text);
-            font-family: var(--font-body); font-size: 1rem; transition: border-color 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--color-accent-action-red); }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        #form-result { margin-top: 20px; font-weight: bold; line-height: 1.5; }
-
-        /* Footer */
-        footer { background: #111; padding: 50px 20px; text-align: center; }
-        .footer-logo { font-family: var(--font-heading); font-size: 2rem; color: var(--color-accent-action-red); margin-bottom: 20px; }
-        .footer-links a { color: var(--color-text); text-decoration: none; margin: 0 15px; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--color-accent-action-red); }
-        .footer-copyright { margin-top: 20px; font-size: 0.9rem; color: rgba(245, 245, 245, 0.5); }
-
-        /* Responsive */
-        @media (max-width: 1024px) { .scroll-indicator { display: flex; } }
-        @media (max-width: 900px) { .story-container { flex-direction: column; } .story-image { max-width: 100%; } }
-        @media (max-width: 768px) {
-            section { padding: 60px 0; }
-            h2, .story-content h2, #process h2, #testimonials h2 { font-size: 2.5rem !important; }
-            .menu-item { flex-basis: 280px; }
-            .process-container, .testimonials-container { flex-direction: column; align-items: center; }
-        }
+        :root{--color-bg-primary:#1a1a1a;--color-bg-secondary:#2a2a2a;--color-accent-action-red:#D82222;--color-text:#f5f5f5;--font-heading:'Playfair Display',serif;--font-body:'Inter',sans-serif}*{-ms-overflow-style:none;scrollbar-width:none}html{scroll-behavior:smooth;background-color:var(--color-bg-primary)}body{font-family:var(--font-body);background-color:var(--color-bg-primary);color:var(--color-text);overflow-x:hidden}h1,h2,h3{font-family:var(--font-heading);color:var(--color-accent-action-red);font-weight:700}p{line-height:1.7;color:rgba(245,245,245,.8)}.container{max-width:1100px;margin:0 auto;padding:0 20px}section{padding:100px 0}.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease-out,transform .8s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}@keyframes nudge-right{0%,to{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(5px)}}.hidden{display:none!important}.hero{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 20px 80px;min-height:600px;text-align:center;background:var(--color-accent-action-red) url(https://i.ibb.co/LX685jHx/image-1.png) no-repeat 50%/contain;background-blend-mode:darken}.cta-button{display:inline-block;background-color:var(--color-accent-action-red);color:var(--color-text);padding:15px 35px;font-size:1rem;font-weight:700;text-decoration:none;border:2px solid var(--color-text);border-radius:50px;text-transform:uppercase;letter-spacing:1px;transition:all .3s ease;box-shadow:0 4px 20px rgba(0,0,0,.5);cursor:pointer}.cta-button:hover{transform:translateY(-5px);background-color:#e53935}#menu h2{text-align:center;font-size:3rem;margin-bottom:50px}.menu-scroll-wrapper{position:relative;overflow-x:scroll;padding:20px 0}.menu-scroll-wrapper::-webkit-scrollbar{display:none}.menu-container{display:flex;width:-moz-max-content;width:max-content;gap:40px;padding:0 40px}.menu-item{flex:0 0 320px;background:var(--color-bg-secondary);border-radius:15px;overflow:hidden;transition:transform .4s ease;display:flex;flex-direction:column}.menu-item:hover{transform:translateY(-10px)}.menu-item-img{width:100%;height:250px;object-fit:cover}.menu-item-content{padding:25px;display:flex;flex-direction:column;flex-grow:1}.menu-item-title{font-size:1.8rem;color:var(--color-text);margin-bottom:10px}.menu-item-description{font-size:.95rem;margin-bottom:20px;flex-grow:1}.menu-item-footer{display:flex;justify-content:space-between;align-items:center}.menu-item-price{font-size:1.5rem;font-weight:700;color:var(--color-text)}.item-order-control{display:flex;align-items:center;justify-content:center;min-width:105px}.add-item-btn{background:var(--color-accent-action-red);color:#fff;padding:8px 30px;border-radius:5px;font-size:.9rem;font-weight:500;transition:background-color .3s;border:none;cursor:pointer;width:100%}.add-item-btn:hover{background-color:#e53935}.quantity-selector{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-accent-action-red);border-radius:5px;overflow:hidden;width:100%}.quantity-selector .quantity-btn{background:var(--color-accent-action-red);border:none;color:var(--color-text);width:32px;height:32px;font-size:1.2rem;cursor:pointer;display:flex;justify-content:center;align-items:center}.quantity-selector .item-quantity-display{font-weight:700;padding:0 10px}.scroll-indicator{display:none;position:absolute;right:15px;top:50%;transform:translateY(-50%);width:45px;height:45px;background-color:rgba(26,26,26,.8);border:1px solid var(--color-text);color:var(--color-text);border-radius:50%;justify-content:center;align-items:center;cursor:pointer;animation:nudge-right 1.8s ease-in-out infinite;z-index:10;transition:opacity .3s ease}.scroll-indicator.hidden{opacity:0;pointer-events:none}.place-order-shortcut-container{text-align:center;margin-top:40px;transition:opacity .4s,transform .4s,height .4s,margin .4s}.place-order-shortcut-container.hidden{opacity:0;transform:translateY(-20px);pointer-events:none;height:0;overflow:hidden;margin-top:0}#story,#testimonials{background:var(--color-bg-secondary)}.story-container{display:flex;align-items:center;gap:50px}.story-content,.story-image{flex:1}#process h2,#testimonials h2,.story-content h2{font-size:3rem;margin-bottom:50px;text-align:center}.story-image{max-width:450px;border-radius:10px;overflow:hidden}.story-image img{width:100%;display:block}.process-container,.testimonials-container{display:flex;justify-content:space-around;gap:30px;text-align:center}.process-step,.testimonial-card{max-width:350px}.process-step h3{font-size:1.5rem;margin:15px 0 10px}.testimonial-card{background:var(--color-bg-primary);padding:30px;border-radius:10px;border-left:5px solid var(--color-accent-action-red)}.testimonial-card p{font-style:italic;margin-bottom:15px}.testimonial-author{font-weight:700;color:var(--color-text)}#order-now{text-align:center}#order-now h2{font-size:3rem;margin-bottom:20px}#order-now p{max-width:600px;margin:0 auto 40px}.cart-container{max-width:600px;margin:0 auto 40px;background:var(--color-bg-secondary);border-radius:10px;padding:25px;text-align:left;border:1px solid #444}.cart-container h3{text-align:center;margin-bottom:20px}#cart-items{display:grid;gap:15px}.cart-item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:15px;padding-bottom:10px;border-bottom:1px solid #444}.cart-item:last-child{border-bottom:none}.item-name{font-weight:500}.item-controls{display:flex;align-items:center;gap:10px}.cart-item-qty-btn{background:var(--color-bg-primary);border:1px solid #555;color:var(--color-text);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;justify-content:center;align-items:center;line-height:1}.item-qty{font-weight:700}#cart-total{margin-top:20px;padding-top:15px;border-top:2px solid var(--color-accent-action-red);display:flex;justify-content:space-between;font-size:1.5rem;font-weight:700}#cart-empty-msg{text-align:center;color:rgba(245,245,245,.6);font-style:italic}.order-form{max-width:600px;margin:0 auto;display:grid;gap:20px}.form-group{text-align:left}.form-group label{display:block;margin-bottom:8px;font-weight:500;color:rgba(245,245,245,.8)}.form-group input,.form-group textarea{width:100%;padding:12px;background-color:var(--color-bg-secondary);border:1px solid #444;border-radius:5px;color:var(--color-text);font-family:var(--font-body);font-size:1rem;transition:border-color .3s}.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--color-accent-action-red)}.form-group textarea{resize:vertical;min-height:120px}#form-result{margin-top:20px;font-weight:700;line-height:1.5}footer{background:#111;padding:50px 20px;text-align:center}.footer-logo{font-family:var(--font-heading);font-size:2rem;color:var(--color-accent-action-red);margin-bottom:20px}.footer-links a{color:var(--color-text);text-decoration:none;margin:0 15px;transition:color .3s}.footer-links a:hover{color:var(--color-accent-action-red)}.footer-copyright{margin-top:20px;font-size:.9rem;color:rgba(245,245,245,.5)}@media (max-width:1024px){.scroll-indicator{display:flex}}@media (max-width:900px){.story-container{flex-direction:column}.story-image{max-width:100%}}@media (max-width:768px){section{padding:60px 0}#process h2,#testimonials h2,.story-content h2,h2{font-size:2.5rem!important}.menu-item{flex-basis:280px}.process-container,.testimonials-container{flex-direction:column;align-items:center}}
     </style>
 </head>
 <body>
@@ -196,7 +97,7 @@
             </div>
             <div class="menu-scroll-wrapper fade-in">
                 <div class="menu-container">
-                    <!-- Menu Items with NEW interactive controls -->
+                    <!-- Menu Items with interactive controls -->
                     <div class="menu-item">
                         <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=870" alt="Chicken Biryani" class="menu-item-img">
                         <div class="menu-item-content">
@@ -290,7 +191,7 @@
                 </div>
                 <div class="scroll-indicator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
             </div>
-            <!-- Shortcut button, initially hidden -->
+            <!-- Shortcut button -->
             <div id="place-order-shortcut-container" class="place-order-shortcut-container hidden">
                 <a href="#order-now" class="cta-button">Proceed to Order</a>
             </div>
@@ -307,7 +208,6 @@
                 </div>
             </div>
         </section>
-
         <section id="process">
             <div class="container">
                 <h2 class="fade-in">How It Works</h2>
@@ -318,7 +218,6 @@
                 </div>
             </div>
         </section>
-
         <section id="testimonials">
             <div class="container">
                 <h2 class="fade-in">What People Say</h2>
@@ -332,7 +231,7 @@
         <section id="order-now">
             <div class="container">
                 <h2 class="fade-in">Place Your Order</h2>
-                <p class="fade-in">Review your order below. When you're ready, fill out your details to complete the purchase.</p>
+                <p class="fade-in">Review your order below. We're currently delivering across Hyderabad and Warangal. When you're ready, fill out your details to complete the purchase.</p>
                 
                 <div class="cart-container fade-in">
                     <h3>Your Order</h3>
@@ -371,7 +270,7 @@
             <a href="#story">Our Story</a>
             <a href="#order-now">Order Now</a>
         </div>
-        <p class="footer-copyright">Operating Hours: 12:00 PM - 11:00 PM | Delivering across the city.</p>
+        <p class="footer-copyright">Operating Hours: 12:00 PM - 11:00 PM | Delivering across Hyderabad & Warangal.</p>
         <p class="footer-copyright">© 2024 Chizukaa Cloud Kitchen. All Rights Reserved.</p>
     </footer>
 
@@ -435,7 +334,7 @@
                     cartTotalDiv.classList.add('hidden');
                 } else {
                     cartEmptyMsg.style.display = 'none';
-                    cart.forEach((item, index) => {
+                    cart.forEach((item) => {
                         const itemTotal = item.price * item.quantity;
                         total += itemTotal;
                         const cartItemDiv = document.createElement('div');
@@ -464,12 +363,11 @@
             // Event Delegation for all interactive elements
             document.body.addEventListener('click', (e) => {
                 const target = e.target;
+                const control = target.closest('.item-order-control');
 
                 if (target.matches('.add-item-btn, .increase-item-btn')) {
-                    const control = target.closest('.item-order-control');
                     updateCart(control.dataset.item, control.dataset.price, 1);
                 } else if (target.matches('.decrease-item-btn')) {
-                    const control = target.closest('.item-order-control');
                     updateCart(control.dataset.item, control.dataset.price, -1);
                 } else if (target.matches('.increase-qty-btn')) {
                     updateCart(target.dataset.item, null, 1);
