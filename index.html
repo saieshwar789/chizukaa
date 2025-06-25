@@ -14,8 +14,8 @@
         :root {
             --color-bg-primary: #1a1a1a;
             --color-bg-secondary: #2a2a2a;
-            --color-accent-primary: #F79F1B;    /* Fiery orange from logo flames - used for all highlights */
-            --color-accent-action-red: #D82222; /* Deep red from logo background - used for all buttons */
+            --color-accent-primary: #F79F1B;    /* Fiery orange from logo flames - used for highlights */
+            --color-accent-action-red: #D82222; /* Deep red from logo background - used for all buttons AND HEADINGS */
             --color-text: #f5f5f5;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
@@ -40,10 +40,10 @@
             overflow-x: hidden; /* Prevent horizontal scroll on the body */
         }
 
-        /* All headings now use the primary accent color */
+        /* All headings now use the ACTION RED color */
         h1, h2, h3 {
             font-family: var(--font-heading);
-            color: var(--color-accent-primary);
+            color: var(--color-accent-action-red);
             font-weight: 700;
         }
 
@@ -97,7 +97,7 @@
             font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
-            border: 2px solid var(--color-accent-primary); /* Added border for pop */
+            border: 2px solid var(--color-accent-primary); /* Border uses orange for contrast */
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -164,7 +164,7 @@
 
         .menu-item-title {
             font-size: 1.8rem;
-            color: var(--color-accent-primary);
+            color: var(--color-accent-primary); /* Menu titles use orange for better visual hierarchy */
             margin-bottom: 10px;
         }
 
@@ -209,13 +209,13 @@
             transform: translateY(-50%);
             width: 45px;
             height: 45px;
-            background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent version of primary bg */
+            background-color: rgba(26, 26, 26, 0.8);
             border: 1px solid var(--color-accent-primary);
             color: var(--color-accent-primary);
             border-radius: 50%;
             justify-content: center;
             align-items: center;
-            pointer-events: none; /* User can click through it */
+            cursor: pointer; /* Show it's clickable */
             animation: nudge-right 1.8s ease-in-out infinite;
             z-index: 10;
             transition: opacity 0.3s ease;
@@ -228,6 +228,7 @@
 
         .scroll-indicator.hidden {
             opacity: 0;
+            pointer-events: none; /* Disable clicking when hidden */
         }
 
         /* --- Story Section --- */
@@ -474,21 +475,91 @@
                         </div>
                     </div>
                 </div>
-                <!-- ADDED THIS NEW ELEMENT FOR THE ARROW -->
+                <!-- This arrow is now clickable! -->
                 <div class="scroll-indicator">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
             </div>
         </section>
 
-        <!-- Other sections... -->
-        <section id="story"><!-- ... --></section>
-        <section id="process"><!-- ... --></section>
-        <section id="testimonials"><!-- ... --></section>
-        <section id="order-now"><!-- ... --></section>
+        <!-- Our Story Section -->
+        <section id="story">
+            <div class="container story-container">
+                <div class="story-content fade-in">
+                    <h2>Our Obsession</h2>
+                    <p>Chizukaa was born from a simple belief: do a few things exceptionally well rather than many things merely okay. We are obsessed with perfecting chicken. Each of our five signature dishes is a masterpiece, the result of countless hours of testing, tasting, and a relentless pursuit of flavor. This isn't just a kitchen; it's our craft, served to you.</p>
+                </div>
+                <div class="story-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=870" alt="Chef preparing food">
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <div class="container">
+                <h2 class="fade-in">How It Works</h2>
+                <div class="process-container">
+                    <div class="process-step fade-in">
+                        <h3>1. You Choose</h3>
+                        <p>Browse our curated menu and pick your craving. The hardest part is choosing just one.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>2. We Craft</h3>
+                        <p>Your meal is prepared fresh, with passion and the finest ingredients, the moment you order.</p>
+                    </div>
+                    <div class="process-step fade-in">
+                        <h3>3. We Deliver</h3>
+                        <p>Hot, fresh, and full of flavor, delivered straight to your doorstep through our partners.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">What People Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-card fade-in">
+                        <p>"The best Chicken Wings I've had in this city. Period. That glaze is something else!"</p>
+                        <div class="testimonial-author">- Anjali R.</div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <p>"Finally, a biryani that tastes authentic and isn't just a plate of colored rice. The chicken was so tender. 10/10."</p>
+                        <div class="testimonial-author">- @FoodieForLife</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Order Now Section -->
+        <section id="order-now">
+            <div class="container">
+                <h2 class="fade-in">Ready to Eat?</h2>
+                <p class="fade-in">Find us on your favorite delivery apps. Your next great meal is just a few clicks away.</p>
+                <div class="delivery-partners fade-in">
+                    <!-- Replace # with your actual Swiggy/Zomato links -->
+                    <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/2560px-Swiggy_logo.svg.png" alt="Order on Swiggy"></a>
+                    <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/2560px-Zomato_logo.png" alt="Order on Zomato"></a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer><!-- ... --></footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Chizukaa</div>
+        <div class="footer-links">
+            <a href="#menu">Menu</a>
+            <a href="#story">Our Story</a>
+            <!-- Replace with your actual contact details -->
+            <a href="tel:+910000000000">Call Us</a>
+        </div>
+        <p class="footer-copyright">Operating Hours: 12:00 PM - 11:00 PM | Delivering across the city.</p>
+        <p class="footer-copyright">© 2024 Chizukaa Cloud Kitchen. All Rights Reserved.</p>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -508,7 +579,7 @@
                 observer.observe(el);
             });
 
-            // --- NEW SCRIPT FOR SCROLL INDICATOR ---
+            // --- SCRIPT FOR SCROLL INDICATOR ---
             const menuWrapper = document.querySelector('.menu-scroll-wrapper');
             const scrollIndicator = document.querySelector('.scroll-indicator');
 
@@ -529,7 +600,19 @@
                     scrollIndicator.classList.remove('hidden');
                 }
             };
+            
+            // --- NEW: SCRIPT TO MAKE ARROW CLICKABLE ---
+            scrollIndicator.addEventListener('click', () => {
+                // Scroll by about the width of one card
+                const scrollAmount = 300; 
+                menuWrapper.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
 
+
+            // Add event listeners to check when to show/hide the arrow
             menuWrapper.addEventListener('scroll', handleScrollIndicator);
             window.addEventListener('load', handleScrollIndicator);
             window.addEventListener('resize', handleScrollIndicator);
