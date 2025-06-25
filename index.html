@@ -10,13 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Variables for Easy Theme Management */
+        /* CSS Variables for the NEW UNIFIED Color Palette */
         :root {
-            --color-primary-bg: #1a1a1a;
-            --color-secondary-bg: #2a2a2a;
-            --color-accent-fire: #F79F1B; /* Fiery orange/yellow from logo */
-            --color-accent-red: #E53935;   /* Vibrant red from logo */
-            --color-logo-red-bg: #D82222;  /* The red from the logo's background */
+            --color-bg-primary: #1a1a1a;
+            --color-bg-secondary: #2a2a2a;
+            --color-accent-primary: #F79F1B;    /* Fiery orange from logo flames - used for all highlights */
+            --color-accent-action-red: #D82222; /* Deep red from logo background - used for all buttons */
             --color-text: #f5f5f5;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
@@ -31,19 +30,20 @@
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--color-primary-bg);
+            background-color: var(--color-bg-primary);
         }
 
         body {
             font-family: var(--font-body);
-            background-color: var(--color-primary-bg);
+            background-color: var(--color-bg-primary);
             color: var(--color-text);
             overflow-x: hidden; /* Prevent horizontal scroll on the body */
         }
 
+        /* All headings now use the primary accent color */
         h1, h2, h3 {
             font-family: var(--font-heading);
-            color: var(--color-accent-fire);
+            color: var(--color-accent-primary);
             font-weight: 700;
         }
 
@@ -74,7 +74,7 @@
             transform: translateY(0);
         }
 
-        /* --- Hero Section - FIXED --- */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -84,22 +84,20 @@
             padding: 0 20px 80px 20px;
             min-height: 600px;
             text-align: center;
-            /* 
-             * THE FIX:
-             * 1. Set the background color to match the logo's red.
-             * 2. Set the image size to 'contain' to ensure it's never cropped.
-             */
-            background: var(--color-logo-red-bg) url('https://i.ibb.co/LX685jHx/image-1.png') no-repeat center center / contain;
+            /* Uses the logo's red as the seamless background color */
+            background: var(--color-accent-action-red) url('https://i.ibb.co/hRk8Fwb/chizukaa-logo-bg.jpg') no-repeat center center / contain;
         }
         
+        /* All buttons now use the action red color */
         .cta-button {
             display: inline-block;
-            background-color: var(--color-accent-red);
+            background-color: var(--color-accent-action-red);
             color: var(--color-text);
             padding: 15px 35px;
             font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
+            border: 2px solid var(--color-accent-primary); /* Added border for pop */
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -109,7 +107,7 @@
 
         .cta-button:hover {
             transform: translateY(-5px);
-            background-color: #F44336;
+            background-color: #E53935; /* A slightly brighter red for hover */
         }
         
         /* --- Menu Section --- */
@@ -138,7 +136,7 @@
 
         .menu-item {
             flex: 0 0 320px;
-            background: var(--color-secondary-bg);
+            background: var(--color-bg-secondary);
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.4s ease;
@@ -165,7 +163,7 @@
 
         .menu-item-title {
             font-size: 1.8rem;
-            color: var(--color-accent-fire);
+            color: var(--color-accent-primary);
             margin-bottom: 10px;
         }
 
@@ -184,11 +182,12 @@
         .menu-item-price {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--color-accent-fire);
+            color: var(--color-accent-primary);
         }
 
+        /* All buttons now use the action red color */
         .order-this-btn {
-            background: var(--color-accent-red);
+            background: var(--color-accent-action-red);
             color: #fff;
             padding: 8px 15px;
             border-radius: 5px;
@@ -198,12 +197,12 @@
             transition: background-color 0.3s;
         }
         .order-this-btn:hover {
-            background-color: #F44336;
+            background-color: #E53935; /* A slightly brighter red for hover */
         }
 
         /* --- Story Section --- */
         #story {
-             background: var(--color-secondary-bg);
+             background: var(--color-bg-secondary);
         }
         .story-container {
             display: flex;
@@ -253,7 +252,7 @@
 
         /* --- Testimonials Section --- */
         #testimonials {
-            background: var(--color-secondary-bg);
+            background: var(--color-bg-secondary);
         }
         #testimonials h2 {
             text-align: center;
@@ -266,11 +265,12 @@
             justify-content: center;
         }
         .testimonial-card {
-            background: var(--color-primary-bg);
+            background: var(--color-bg-primary);
             padding: 30px;
             border-radius: 10px;
             max-width: 350px;
-            border-left: 5px solid var(--color-accent-fire);
+            /* Border uses the primary accent color for consistency */
+            border-left: 5px solid var(--color-accent-primary);
         }
         .testimonial-card p {
             font-style: italic;
@@ -278,7 +278,7 @@
         }
         .testimonial-author {
             font-weight: bold;
-            color: var(--color-accent-fire);
+            color: var(--color-accent-primary);
         }
 
         /* --- Final CTA / Order Now Section --- */
@@ -312,7 +312,7 @@
         .footer-logo {
             font-family: var(--font-heading);
             font-size: 2rem;
-            color: var(--color-accent-fire);
+            color: var(--color-accent-primary);
             margin-bottom: 20px;
         }
         .footer-links a {
@@ -322,7 +322,7 @@
             transition: color 0.3s;
         }
         .footer-links a:hover {
-            color: var(--color-accent-fire);
+            color: var(--color-accent-primary);
         }
         .footer-copyright {
             margin-top: 20px;
@@ -367,7 +367,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <a href="#order-now" class="cta-button">Order Now</a>
+        <a href="#menu" class="cta-button">View Our Menu</a>
     </section>
 
     <main>
@@ -404,7 +404,7 @@
                     </div>
                     <!-- Item 3: Chicken Lollipop -->
                     <div class="menu-item">
-                        <img src="./lollipop.png?auto=format&fit=crop&q=80&w=870" alt="Chicken Lollipop" class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1626082902334-a6cf14dd72a7?auto=format&fit=crop&q=80&w=870" alt="Chicken Lollipop" class="menu-item-img">
                         <div class="menu-item-content">
                             <h3 class="menu-item-title">Glazed Lollipops</h3>
                             <p class="menu-item-description">Succulent chicken lollipops, Frenched and fried, then glazed in a sweet, spicy, and savory sauce. Irresistible.</p>
@@ -416,7 +416,7 @@
                     </div>
                     <!-- Item 4: Naatukodi -->
                     <div class="menu-item">
-                        <img src="./naatukodi.png?auto=format&fit=crop&q=80&w=870" alt="Naatukodi - Rustic Chicken Curry" class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1606471181162-b9bce2c356d4?auto=format&fit=crop&q=80&w=870" alt="Naatukodi - Rustic Chicken Curry" class="menu-item-img">
                         <div class="menu-item-content">
                             <h3 class="menu-item-title">Rustic Naatukodi</h3>
                             <p class="menu-item-description">Authentic country chicken, slow-cooked with rustic, hand-pounded spices. A robust, traditional flavor.</p>
@@ -515,7 +515,7 @@
             <a href="#menu">Menu</a>
             <a href="#story">Our Story</a>
             <!-- Replace with your actual contact details -->
-            <a href="tel:+916281175947">Call Us</a>
+            <a href="tel:+910000000000">Call Us</a>
         </div>
         <p class="footer-copyright">Operating Hours: 12:00 PM - 11:00 PM | Delivering across the city.</p>
         <p class="footer-copyright">© 2024 Chizukaa Cloud Kitchen. All Rights Reserved.</p>
