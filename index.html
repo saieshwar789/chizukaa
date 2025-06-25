@@ -86,6 +86,12 @@
             text-align: center;
             /* Uses the logo's red as the seamless background color */
             background: var(--color-accent-action-red) url('https://i.ibb.co/LX685jHx/image-1.png') no-repeat center center / contain;
+            /* 
+              CORRECTION: This new line blends the image with the background color. 
+              The 'darken' mode ensures that the darker pixels (your logo) remain visible, 
+              while the lighter red background of the image is replaced by your consistent site-wide red.
+            */
+            background-blend-mode: darken;
         }
         
         /* All buttons now use the action red color */
