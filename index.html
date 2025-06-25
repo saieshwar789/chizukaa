@@ -305,6 +305,7 @@
         #form-result {
             margin-top: 20px;
             font-weight: bold;
+            line-height: 1.5;
         }
 
         /* --- Footer --- */
@@ -373,7 +374,7 @@
                             <p class="menu-item-description">A regal blend of aromatic basmati rice, tender chicken, and a secret mix of spices, slow-cooked to perfection.</p>
                             <div class="menu-item-footer">
                                 <span class="menu-item-price">₹250</span>
-                                <a href="#order-now" class="order-this-btn">Order This</a>
+                                <a href="#order-now" class="order-this-btn" data-item="The Royal Biryani">Order This</a>
                             </div>
                         </div>
                     </div>
@@ -385,7 +386,7 @@
                             <p class="menu-item-description">Crispy, juicy wings tossed in a blazing house-made sauce that is dangerously addictive. A true test of passion.</p>
                             <div class="menu-item-footer">
                                 <span class="menu-item-price">₹220</span>
-                                <a href="#order-now" class="order-this-btn">Order This</a>
+                                <a href="#order-now" class="order-this-btn" data-item="Fiery Wings">Order This</a>
                             </div>
                         </div>
                     </div>
@@ -397,7 +398,7 @@
                             <p class="menu-item-description">Succulent chicken lollipops, Frenched and fried, then glazed in a sweet, spicy, and savory sauce. Irresistible.</p>
                             <div class="menu-item-footer">
                                 <span class="menu-item-price">₹240</span>
-                                <a href="#order-now" class="order-this-btn">Order This</a>
+                                <a href="#order-now" class="order-this-btn" data-item="Glazed Lollipops">Order This</a>
                             </div>
                         </div>
                     </div>
@@ -409,7 +410,7 @@
                             <p class="menu-item-description">Authentic country chicken, slow-cooked with rustic, hand-pounded spices. A robust, traditional flavor.</p>
                             <div class="menu-item-footer">
                                 <span class="menu-item-price">₹300</span>
-                                <a href="#order-now" class="order-this-btn">Order This</a>
+                                <a href="#order-now" class="order-this-btn" data-item="Rustic Naatukodi">Order This</a>
                             </div>
                         </div>
                     </div>
@@ -421,7 +422,7 @@
                             <p class="menu-item-description">A perfectly seasoned, crispy fried chicken fillet, topped with tangy slaw and a secret sauce in a toasted brioche bun.</p>
                             <div class="menu-item-footer">
                                 <span class="menu-item-price">₹180</span>
-                                <a href="#order-now" class="order-this-btn">Order This</a>
+                                <a href="#order-now" class="order-this-btn" data-item="The Ultimate Burger">Order This</a>
                             </div>
                         </div>
                     </div>
@@ -491,13 +492,11 @@
                 
                 <form id="order-form" class="order-form fade-in" action="https://api.web3forms.com/submit" method="POST">
                     
-                    <!-- Your Access Key is now correctly inserted below! -->
                     <input type="hidden" name="access_key" value="ba282db2-7e3a-4ea3-82f3-581b3717459c">
                     
-                    <!-- These are helper fields for the email you receive -->
                     <input type="hidden" name="subject" value="New Order from Chizukaa Website!">
                     <input type="hidden" name="from_name" value="Chizukaa Order Bot">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> <!-- For spam protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
 
                     <div class="form-group">
@@ -584,6 +583,19 @@
             window.addEventListener('load', handleScrollIndicator);
             window.addEventListener('resize', handleScrollIndicator);
 
+            // --- NEW: Auto-populate form from "Order This" button ---
+            const orderButtons = document.querySelectorAll('.order-this-btn');
+            const itemDropdown = document.getElementById('item');
+
+            orderButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const itemName = e.target.dataset.item;
+                    if (itemName) {
+                        itemDropdown.value = itemName;
+                    }
+                });
+            });
+
             // --- Order Form Submission Logic ---
             const form = document.getElementById('order-form');
             const resultDiv = document.getElementById('form-result');
@@ -592,6 +604,7 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(form);
+                const customerName = formData.get('name'); // Get customer name for personalization
                 const object = {};
                 formData.forEach((value, key) => { object[key] = value });
                 const json = JSON.stringify(object);
@@ -611,7 +624,10 @@
                 .then(async (response) => {
                     let jsonResponse = await response.json();
                     if (response.status == 200) {
-                        resultDiv.innerHTML = jsonResponse.message || "Order placed successfully!";
+                        // --- NEW: Personalized confirmation message ---
+                        const confirmationNumber = `CZK-${String(Date.now()).slice(-6)}`;
+                        const successMessage = `Thank you, ${customerName}! Your order #${confirmationNumber} has been placed. We'll call you shortly to confirm.`;
+                        resultDiv.innerHTML = successMessage;
                         resultDiv.style.color = '#4CAF50'; // Green for success
                     } else {
                         console.log(response);
@@ -627,7 +643,7 @@
                 .then(function() {
                     form.reset();
                     submitButton.disabled = false;
-                    setTimeout(() => { resultDiv.innerHTML = ''; }, 6000);
+                    setTimeout(() => { resultDiv.innerHTML = ''; }, 10000); // Increased time to see message
                 });
             });
         });
