@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Variables for Easy Theme Management */
+        /* CSS Variables for Easy Theme Management - UPDATED PALETTE */
         :root {
             --color-primary-bg: #1a1a1a;
             --color-secondary-bg: #2a2a2a;
-            --color-accent-gold: #c5a47e;
-            --color-accent-red: #d9534f;
+            --color-accent-fire: #F79F1B; /* Fiery orange/yellow from logo */
+            --color-accent-red: #E53935;   /* Vibrant red from logo */
             --color-text: #f5f5f5;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
@@ -42,7 +42,7 @@
 
         h1, h2, h3 {
             font-family: var(--font-heading);
-            color: var(--color-accent-gold);
+            color: var(--color-accent-fire); /* UPDATED from gold to fire */
             font-weight: 700;
         }
 
@@ -73,35 +73,21 @@
             transform: translateY(0);
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section - REDESIGNED --- */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end; /* Pushes content to the bottom */
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1598515753093-b692aa461806?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+            padding: 0 20px 80px 20px; /* Added padding to the bottom */
+            /* Using your logo as the background */
+            background: url('https://i.ibb.co/hRk8Fwb/chizukaa-logo-bg.jpg') no-repeat center center/cover;
             min-height: 600px;
+            text-align: center;
         }
-
-        .hero-logo {
-            font-family: var(--font-heading);
-            font-size: clamp(3rem, 10vw, 6rem);
-            color: var(--color-accent-gold);
-            letter-spacing: 2px;
-            font-weight: 800;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero-tagline {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+        
+        /* Removed .hero-logo and .hero-tagline as they are now in the background image */
 
         .cta-button {
             display: inline-block;
@@ -115,12 +101,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 4px 15px rgba(217, 83, 79, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for contrast */
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            background-color: #e06864;
+            background-color: #F44336; /* Lighter shade of the new red */
         }
         
         /* --- Menu Section --- */
@@ -177,7 +163,7 @@
 
         .menu-item-title {
             font-size: 1.8rem;
-            color: var(--color-accent-gold);
+            color: var(--color-accent-fire); /* UPDATED */
             margin-bottom: 10px;
         }
 
@@ -196,7 +182,7 @@
         .menu-item-price {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--color-accent-gold);
+            color: var(--color-accent-fire); /* UPDATED */
         }
 
         .order-this-btn {
@@ -210,7 +196,7 @@
             transition: background-color 0.3s;
         }
         .order-this-btn:hover {
-            background-color: #e06864;
+            background-color: #F44336; /* UPDATED */
         }
 
         /* --- Story Section --- */
@@ -282,7 +268,7 @@
             padding: 30px;
             border-radius: 10px;
             max-width: 350px;
-            border-left: 5px solid var(--color-accent-gold);
+            border-left: 5px solid var(--color-accent-fire); /* UPDATED */
         }
         .testimonial-card p {
             font-style: italic;
@@ -290,7 +276,7 @@
         }
         .testimonial-author {
             font-weight: bold;
-            color: var(--color-accent-gold);
+            color: var(--color-accent-fire); /* UPDATED */
         }
 
         /* --- Final CTA / Order Now Section --- */
@@ -324,7 +310,7 @@
         .footer-logo {
             font-family: var(--font-heading);
             font-size: 2rem;
-            color: var(--color-accent-gold);
+            color: var(--color-accent-fire); /* UPDATED */
             margin-bottom: 20px;
         }
         .footer-links a {
@@ -334,7 +320,7 @@
             transition: color 0.3s;
         }
         .footer-links a:hover {
-            color: var(--color-accent-gold);
+            color: var(--color-accent-fire); /* UPDATED */
         }
         .footer-copyright {
             margin-top: 20px;
@@ -377,10 +363,8 @@
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - REDESIGNED -->
     <section class="hero">
-        <h1 class="hero-logo">Chizukaa</h1>
-        <p class="hero-tagline">The Art of Five</p>
         <a href="#order-now" class="cta-button">Order Now</a>
     </section>
 
@@ -418,8 +402,7 @@
                     </div>
                     <!-- Item 3: Chicken Lollipop -->
                     <div class="menu-item">
-                        <!-- NEW, WORKING IMAGE LINK -->
-                        <img src="./lollipop.png?auto=format&fit=crop&q=80&w=870" alt="Chicken Lollipop" class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1626082902334-a6cf14dd72a7?auto=format&fit=crop&q=80&w=870" alt="Chicken Lollipop" class="menu-item-img">
                         <div class="menu-item-content">
                             <h3 class="menu-item-title">Glazed Lollipops</h3>
                             <p class="menu-item-description">Succulent chicken lollipops, Frenched and fried, then glazed in a sweet, spicy, and savory sauce. Irresistible.</p>
@@ -431,8 +414,7 @@
                     </div>
                     <!-- Item 4: Naatukodi -->
                     <div class="menu-item">
-                        <!-- NEW, WORKING IMAGE LINK -->
-                        <img src="./naatukodi.png?auto=format&fit=crop&q=80&w=870" alt="Naatukodi - Rustic Chicken Curry" class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1606471181162-b9bce2c356d4?auto=format&fit=crop&q=80&w=870" alt="Naatukodi - Rustic Chicken Curry" class="menu-item-img">
                         <div class="menu-item-content">
                             <h3 class="menu-item-title">Rustic Naatukodi</h3>
                             <p class="menu-item-description">Authentic country chicken, slow-cooked with rustic, hand-pounded spices. A robust, traditional flavor.</p>
